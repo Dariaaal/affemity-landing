@@ -16,3 +16,30 @@
   color: var(--color-text-primary);
   background-color: transparent;
 }
+
+.custom-checkbox-wrapper {
+  position: relative;
+  width: 1.9rem;
+  height: 1.9rem;
+}
+
+.custom-checkbox {
+  opacity: 0;
+  position: absolute;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.checkbox-display {
+  width: 1.9rem;
+  height: 1.9rem;
+  border-radius: 0.2rem;
+  border: 0.1rem solid #d2cfdf;
+  background-color: var(--color-bg-white);
+  box-sizing: border-box;
+}
+
+.custom-checkbox:checked + .checkbox-display {
+  border-color: transparent;
+}

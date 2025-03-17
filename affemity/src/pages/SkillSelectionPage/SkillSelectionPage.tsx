@@ -54,7 +54,14 @@ const SkillSelectionPage = () => {
   };
 
   return (
-    <div className={cx("page-container", "fx-center", "fx--col", "container-relative")}>
+    <div
+      className={cx(
+        "page-container",
+        "fx-center",
+        "fx--col",
+        "container-relative"
+      )}
+    >
       <Header
         title={"What would you like to learn?"}
         text={"Select all that apply"}
@@ -66,7 +73,11 @@ const SkillSelectionPage = () => {
         progress={22.8}
       />
       <div className={cx(css["skills-container"], "full-width")}>
-        <SkillsList skills={currentSkills} onChange={handleCheckboxChange} />
+        <SkillsList
+          skills={currentSkills}
+          selectedSkills={selectedSkills}
+          onChange={handleCheckboxChange}
+        />
       </div>
       <div className={cx(css["button-container"], "fx-center", "full-width")}>
         <button

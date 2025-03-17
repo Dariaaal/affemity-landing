@@ -1,0 +1,60 @@
+.container {
+  gap: 1.2rem;
+}
+
+.logo-container {
+  gap: 0.63rem;
+}
+
+.logo-text {
+  font-size: 2.49rem;
+  color: var(--color-accent);
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.text {
+  font-size: 1.6rem;
+  font-weight: 300;
+  color: var(--color-text-primary);
+}
+
+.text-small {
+  font-size: 1.2rem;
+}
+
+.button-back {
+  width: 4rem;
+  height: 4rem;
+  border: 0.1rem solid var(--color-border);
+  border-radius: 50%;
+  transition: border var(--time-function);
+
+  &:hover,
+  &:focus {
+    border: 0.1rem solid var(--color-border-hover);
+  }
+}
+
+.steps {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.progress-bar-container {
+  width: 100%;
+  height: 0.5rem;
+  background-color: var(--color-input);
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: var(--color-accent);
+  border-radius: 1rem;
+}

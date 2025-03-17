@@ -1,0 +1,50 @@
+.goal-section {
+  margin-top: 4.2rem;
+  margin-bottom: 2.4rem;
+}
+
+.goal-heading {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.links-container {
+  margin: 1.2rem 0;
+  gap: 1.2rem;
+}
+
+.link-item {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  max-width: 15.75rem;
+  padding: 1.45rem 1rem;
+  border: 0.1rem solid var(--color-border);
+  border-radius: 1rem;
+  background-color: var(--color-bg-white);
+  transition: border var(--time-function);
+
+  &:hover,
+  &:focus {
+    border: 0.1rem solid var(--color-border-hover);
+  }
+}
+
+.link-additional {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  text-decoration: underline;
+  transition: color var(--time-function);
+
+  &:hover,
+  &:focus {
+    color: var(--color-accent);
+  }
+}
+
+.agreement-text {
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: var(--color-text-secondary);
+}

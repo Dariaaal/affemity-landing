@@ -1,0 +1,126 @@
+:root {
+  /* Fonts */
+  --font-primary: "Nunito", sans-serif;
+
+  /* Colors */
+  --color-bg-primary: #faf9ff;
+  --color-accent: #31728d;
+  --color-text-primary: #111111;
+  --color-text-secondary: #666666;
+  --color-text-white: #ffffff;
+  --color-bg-white: #ffffff;
+  --color-border: #d2cfdf;
+  --color-border-hover: #31728d;
+  --color-input: #e8e6ef;
+  --color-input-placeholder: #b7b4c1;
+  --color-button-disabled: #e8e6ef;
+  --color-button-disabled-text: #b7b4c1;
+
+  /* Sizes */
+  --size-text-primary: 1rem;
+
+  /* Transition */
+  --time-function: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  box-sizing: border-box;
+  font-family: var(--font-primary);
+  background-color: var(--color-bg-primary);
+}
+
+html {
+  font-size: calc(10px + (15 - 10) * ((100vw - 375px) / (480 - 375)));
+}
+
+@media (min-width: 480px) {
+  html {
+    font-size: 15px;
+  }
+}
+
+body,
+ul,
+li,
+h1,
+h2,
+h3,
+p,
+fieldset,
+input {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+a,
+.react-router-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.react-router-link:hover,
+.react-router-link:focus {
+  text-decoration: none;
+  color: inherit;
+}
+
+.react-router-link:active {
+  color: inherit;
+}
+
+/* Flex styles */
+.fx {
+  display: flex;
+}
+
+.fx--col {
+  flex-direction: column;
+}
+
+.fx-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fx--justify-sb {
+  justify-content: space-between;
+}
+
+.fx--ai-center {
+  align-items: center;
+}
+
+/* Containers */
+.container-relative {
+  position: relative;
+}
+
+.page-container {
+  padding: 1.2rem 2.4rem 1.6rem 2.4rem;
+  margin: 0 auto;
+}
+
+@media (min-width: 600px) {
+  .page-container {
+    max-width: 40rem;
+  }
+}
+
+.full-width {
+  width: 100%;
+}
+
+/* Text */
+
+.text-accent {
+  color: var(--color-accent);
+}
+
+.text-center {
+  text-align: center;
+}

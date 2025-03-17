@@ -1,0 +1,18 @@
+.container {
+  background-color: var(--color-bg-white);
+  border: 0.1rem solid var(--color-border);
+  border-radius: 1rem;
+  padding: 0.9rem 1.6rem;
+}
+
+.title-wrapper {
+  gap: 1rem;
+  background-color: transparent;
+}
+
+.title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  background-color: transparent;
+}

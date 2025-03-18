@@ -2,13 +2,13 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Skill } from "../models/Skill";
 
 type GoalState = {
-  goal: string | null;
+  goal: string;
   selectedSkills: Skill[];
   email: string;
 };
 
 const initialState: GoalState = {
-  goal: null,
+  goal: "",
   selectedSkills: [],
   email: "",
 };

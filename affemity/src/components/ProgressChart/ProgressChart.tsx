@@ -1,13 +1,11 @@
 import React from "react";
 import {
-  BarChart,
   Bar,
   ResponsiveContainer,
   Cell,
-  CartesianGrid,
   Line,
   ComposedChart,
-  ReferenceLine, // Add ReferenceLine to draw the horizontal lines
+  ReferenceLine,
 } from "recharts";
 import css from "./ProgressChart.module.css";
 import { cx } from "../../lib/classNames";
@@ -21,6 +19,25 @@ const data = [
 ];
 
 const colors = ["#A9DEF4", "#9CC9DC", "#69A8C2", "#5190AA", "#31728D"];
+
+const CustomDot = (props: any) => {
+  const { cx, cy, index } = props;
+  const point = data[index];
+
+  if (point?.label) {
+    return (
+      <circle
+        cx={cx}
+        cy={cy}
+        r={13.5}
+        fill="#A9DEF4"
+        stroke="white"
+        strokeWidth={5}
+      />
+    );
+  }
+  return null;
+};
 
 const ProgressChart: React.FC = () => {
   const maxValue = 36;
@@ -37,7 +54,10 @@ const ProgressChart: React.FC = () => {
       </p>
       <div className={css["chart-container"]}>
         <ResponsiveContainer>
-          <ComposedChart data={data}>
+          <ComposedChart
+            data={data}
+            margin={{ top: 13, right: 0, bottom: 0, left: 0 }}
+          >
             {lines.map((line, index) => (
               <ReferenceLine key={index} y={line} stroke="#D2CFDF" />
             ))}
@@ -51,14 +71,14 @@ const ProgressChart: React.FC = () => {
               dataKey="lineValue"
               stroke="#111111"
               strokeWidth={2.11}
-              dot={false}
+              dot={<CustomDot />}
             />
           </ComposedChart>
         </ResponsiveContainer>
-        <div className={cx(css["weeks"], "fx", "fx--justify-sb")}>
-          <p>week 1</p>
-          <p>week 4</p>
-        </div>
+      </div>
+      <div className={cx(css["weeks"], "fx", "fx--justify-sb")}>
+        <p>week 1</p>
+        <p>week 4</p>
       </div>
     </div>
   );

@@ -5,11 +5,14 @@ import { cx } from "../../lib/classNames";
 import css from "./EmailFormPage.module.css";
 import { addEmail } from "../../store/slice";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../store";
 
 const EmailFormPage = () => {
   const [email, setEmail] = useState<string>("");
   const [isValid, setIsValid] = useState<boolean>(true);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const validateEmail = (value: string) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -26,7 +29,7 @@ const EmailFormPage = () => {
 
   const onResultsClick = () => {
     if (!isValid) return;
-    addEmail(email);
+    dispatch(addEmail(email));
     navigate("/plan");
   };
 
@@ -38,17 +41,19 @@ const EmailFormPage = () => {
       />
       <div className={cx(css["form"], "fx", "fx--col")}>
         <div>
-        <input
-          className={cx(
-            css["email-input"],
-            email !== "" && css["email-input-with-value"],
-            !isValid && css["email-input-with-error"]
+          <input
+            className={cx(
+              css["email-input"],
+              email !== "" && css["email-input-with-value"],
+              !isValid && css["email-input-with-error"]
+            )}
+            placeholder="example@gmail.com"
+            value={email}
+            onChange={(e) => onEmailChange(e.target.value)}
+          />
+          {!isValid && (
+            <p className={css["error-tip"]}>Error! Please check your email</p>
           )}
-          placeholder="example@gmail.com"
-          value={email}
-          onChange={(e) => onEmailChange(e.target.value)}
-        />
-        {!isValid && <p className={css["error-tip"]}>Error! Please check your email</p>}
         </div>
         <button className={css["button"]} onClick={onResultsClick}>
           Get results

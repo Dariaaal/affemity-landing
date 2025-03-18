@@ -1,22 +1,23 @@
 import { cx } from "../../lib/classNames";
+import { Skill } from "../../models/Skill";
 import SkillCard from "../SkillCard/SkillCard";
 import css from "./SkillsList.module.css";
 
 type Props = {
-  skills: string[];
-  selectedSkills: string[];
+  skills: Skill[];
+  selectedSkills: Skill[];
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 const SkillsList: React.FC<Props> = ({ skills, selectedSkills, onChange }) => {
-    console.log(selectedSkills)
   return (
     <ul className={cx(css["list"], "fx", "fx--col")}>
-      {skills.map((item, index) => (
-        <li key={index}>
+      {skills.map((item) => (
+        <li key={item.id}>
           <SkillCard
-            title={item}
-            emoji={undefined}
+            id={item.id}
+            title={item.name}
+            emoji={item.icon}
             checked={selectedSkills.includes(item)}
             onChange={onChange}
           />

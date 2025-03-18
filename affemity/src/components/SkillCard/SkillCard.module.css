@@ -3,11 +3,28 @@
   border: 0.1rem solid var(--color-border);
   border-radius: 1rem;
   padding: 0.9rem 1.6rem;
+  transition: border var(--time-function);
+
+  &:hover,
+  &:focus {
+    border: 0.1rem solid var(--color-accent);
+  }
+}
+
+.container-checked {
+  border: 0.1rem solid var(--color-accent);
 }
 
 .title-wrapper {
   gap: 1rem;
   background-color: transparent;
+}
+
+.emoji {
+  display: block;
+  width: 3rem;
+  height: 3rem;
+  background-color: var(--color-bg-white);
 }
 
 .title {

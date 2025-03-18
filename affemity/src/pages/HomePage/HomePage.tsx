@@ -1,15 +1,18 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import { cx } from "../../lib/classNames";
 import css from "./HomePage.module.css";
 import { useDispatch } from "react-redux";
 import { setGoal } from "../../store/slice";
+import ProgressChart from "../../components/ProgressChart/ProgressChart";
 
 const HomePage = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleGoalClick = (goal: string) => {
     dispatch(setGoal(goal));
+    navigate("/skills");
   };
 
   return (
@@ -24,26 +27,26 @@ const HomePage = () => {
           "with easy-to-use practical tips that you can apply in any situation"
         }
       />
-      <div></div>
+      <div className={css["progress-container"]}>
+        <ProgressChart />
+      </div>
       <div className={cx(css["goal-section"], "fx-center", "fx--col")}>
         <h2 className={cx(css["goal-heading"], "text-center")}>
           What is your main goal?
         </h2>
-        <div className={cx(css["links-container"], "fx-center")}>
-          <Link
-            to="/skills"
-            className={cx(css["link-item"], "text-center")}
+        <div className={cx(css["buttons-container"], "fx-center")}>
+          <button
+            className={cx(css["button-item"], "text-center")}
             onClick={() => handleGoalClick("goal1")}
           >
             Build a deep connection
-          </Link>
-          <Link
-            to="/skills"
-            className={cx(css["link-item"], "text-center")}
+          </button>
+          <button
+            className={cx(css["button-item"], "text-center")}
             onClick={() => handleGoalClick("goal2")}
           >
             Create emotional attraction
-          </Link>
+          </button>
         </div>
         <Link to="/" className={css["link-additional"]}>
           Other

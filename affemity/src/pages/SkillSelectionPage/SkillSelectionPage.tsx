@@ -6,22 +6,24 @@ import { cx } from "../../lib/classNames";
 import { RootState, AppDispatch } from "../../store";
 import { addSelectedOption, removeSelectedOption } from "../../store/slice";
 import SkillsList from "../../components/SkillsList/SkillsList";
+import { Skill, Skills } from "../../models/Skill";
+import { useNavigate } from "react-router-dom";
 
-const skills = {
-  goal1: [
-    "Skill1_goal1",
-    "Skill2_goal1",
-    "Skill3_goal1",
-    "Skill4_goal1",
-    "Skill5_goal1",
-  ],
-  goal2: [
-    "Skill1_goal2",
-    "Skill2_goal2",
-    "Skill3_goal2",
-    "Skill4_goal2",
-    "Skill5_goal2",
-  ],
+const skills: Skills = {
+    goal1: [
+        { id: "1", name: "Skill1_goal1", icon: "hands.png" },
+        { id: "2", name: "Skill2_goal1", icon: "tears.png" },
+        { id: "3", name: "Skill3_goal1", icon: "lightning.png" },
+        { id: "4", name: "Skill4_goal1", icon: "smile.png" },
+        { id: "5", name: "Skill5_goal1", icon: "finger.png" },
+      ],
+      goal2: [
+        { id: "1", name: "Skill1_goal2", icon: "hands.png"  },
+        { id: "2", name: "Skill2_goal2", icon: "tears.png" },
+        { id: "3", name: "Skill3_goal2", icon: "lightning.png" },
+        { id: "4", name: "Skill4_goal2", icon: "smile.png" },
+        { id: "5", name: "Skill5_goal2", icon: "finger.png" },
+      ],
 };
 
 const SkillSelectionPage = () => {
@@ -31,7 +33,9 @@ const SkillSelectionPage = () => {
   );
   const dispatch = useDispatch<AppDispatch>();
 
-  const [currentSkills, setCurrentSkills] = useState<string[]>([]);
+  const [currentSkills, setCurrentSkills] = useState<Skill[]>([]);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (goal && skills.hasOwnProperty(goal)) {
@@ -45,11 +49,17 @@ const SkillSelectionPage = () => {
 
   const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { checked, value } = e.target;
-
-    if (checked) {
-      dispatch(addSelectedOption(value));
+  
+    const selectedSkill = currentSkills.find(skill => skill.id === value);
+  
+    if (selectedSkill) {
+      if (checked) {
+        dispatch(addSelectedOption(selectedSkill));
+      } else {
+        dispatch(removeSelectedOption(selectedSkill));
+      }
     } else {
-      dispatch(removeSelectedOption(value));
+      console.error("Skill not found");
     }
   };
 
@@ -86,6 +96,7 @@ const SkillSelectionPage = () => {
             isButtonDisabled && css["button-item-disabled"]
           )}
           disabled={isButtonDisabled}
+          onClick={() => navigate("/form")}
         >
           Continue
         </button>

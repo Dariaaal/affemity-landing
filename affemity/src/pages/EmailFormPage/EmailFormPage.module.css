@@ -1,0 +1,63 @@
+.form {
+  margin-top: 1.2rem;
+  gap: 1.2rem;
+}
+
+.privacy {
+  gap: 0.8rem;
+}
+
+.privacy-text {
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--color-text-secondary);
+}
+
+.email-input {
+  font-size: 1.6rem;
+  font-weight: 300;
+  color: var(--color-text-primary);
+  background-color: var(--color-button-disabled);
+  border: 1px solid var(--color-button-disabled);
+  padding: 1.4rem 1.2rem;
+  border-radius: 1rem;
+  width: 100%;
+  outline: none;
+
+  &::placeholder {
+    color: var(--color-button-disabled-text);
+  }
+
+  &:focus,
+  &:active {
+    background-color: var(--color-bg-white);
+    border: 1px solid var(--color-accent);
+  }
+}
+
+.email-input-with-value {
+  background-color: var(--color-bg-white);
+  border: 1px solid var(--color-border);
+}
+
+.email-input-with-error {
+  border: 1px solid var(--color-error);
+}
+
+.error-tip {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-error);
+  margin-top: 0.4rem;
+}
+
+.button {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--color-text-white);
+  background-color: var(--color-accent);
+  padding: 1.4rem;
+  border: none;
+  border-radius: 1rem;
+  width: 100%;
+}

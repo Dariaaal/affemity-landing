@@ -1,0 +1,20 @@
+.title {
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: var(--color-text-secondary);
+  text-align: left;
+  width: 13rem;
+}
+
+.chart-container {
+  position: relative;
+  width: 32.6rem;
+  height: 13.84rem;
+}
+
+.weeks {
+  padding: 0 1.5rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}

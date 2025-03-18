@@ -1,13 +1,16 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { Skill } from "../models/Skill";
 
 type GoalState = {
-  goal: string | null; 
-  selectedSkills: string[];
-}
+  goal: string | null;
+  selectedSkills: Skill[];
+  email: string;
+};
 
 const initialState: GoalState = {
   goal: null,
   selectedSkills: [],
+  email: "",
 };
 
 const goalSlice = createSlice({
@@ -15,20 +18,23 @@ const goalSlice = createSlice({
   initialState,
   reducers: {
     setGoal(state, action: PayloadAction<string>) {
-      state.goal = action.payload; 
+      state.goal = action.payload;
     },
-    setSelectedOptions(state, action: PayloadAction<string[]>) {
-      state.selectedSkills = action.payload; 
+    setSelectedOptions(state, action: PayloadAction<Skill[]>) {
+      state.selectedSkills = action.payload;
     },
-    addSelectedOption(state, action: PayloadAction<string>) {
+    addSelectedOption(state, action: PayloadAction<Skill>) {
       if (!state.selectedSkills.includes(action.payload)) {
-        state.selectedSkills.push(action.payload); 
+        state.selectedSkills.push(action.payload);
       }
     },
-    removeSelectedOption(state, action: PayloadAction<string>) {
+    removeSelectedOption(state, action: PayloadAction<Skill>) {
       state.selectedSkills = state.selectedSkills.filter(
-        (skill) => skill !== action.payload 
+        (skill) => skill.id !== action.payload.id
       );
+    },
+    addEmail(state, action: PayloadAction<string>) {
+      state.email = action.payload;
     },
   },
 });
@@ -38,6 +44,7 @@ export const {
   setSelectedOptions,
   addSelectedOption,
   removeSelectedOption,
+  addEmail
 } = goalSlice.actions;
 
 export default goalSlice.reducer;

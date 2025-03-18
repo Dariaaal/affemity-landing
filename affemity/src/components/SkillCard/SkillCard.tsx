@@ -3,32 +3,39 @@ import { cx } from "../../lib/classNames";
 import css from "./SkillCard.module.css";
 
 type Props = {
+  id: string;
   title: string;
-  emoji: React.ReactNode;
+  emoji: string;
   checked: boolean;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-const SkillCard: React.FC<Props> = ({ title, emoji, checked, onChange }) => {
+const SkillCard: React.FC<Props> = ({
+  id,
+  title,
+  emoji,
+  checked,
+  onChange,
+}) => {
   return (
     <label
       className={cx(
         css["container"],
         "fx",
         "fx--justify-sb",
-        "fx--ai-center"
+        "fx--ai-center",
+        checked && css["container-checked"]
       )}
     >
       <div className={cx(css["title-wrapper"], "fx", "fx--ai-center")}>
-        {emoji}
+        <img src={emoji} className={css["emoji"]} />
         <p className={css["title"]}>{title}</p>
       </div>
-
       <div className={css["custom-checkbox-wrapper"]}>
         <input
           type="checkbox"
           className={css["custom-checkbox"]}
-          value={title}
+          value={id}
           onChange={onChange}
           checked={checked}
         />

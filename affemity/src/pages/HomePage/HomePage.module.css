@@ -8,12 +8,16 @@
   font-weight: 700;
 }
 
-.links-container {
+.progress-container {
+  margin-top: 4.2rem;
+}
+
+.buttons-container {
   margin: 1.2rem 0;
   gap: 1.2rem;
 }
 
-.link-item {
+.button-item {
   font-size: 1.4rem;
   font-weight: 700;
   color: var(--color-text-primary);

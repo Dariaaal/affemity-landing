@@ -5,8 +5,7 @@
   padding: 0.9rem 1.6rem;
   transition: border var(--time-function);
 
-  &:hover,
-  &:focus {
+  &:hover {
     border: 0.1rem solid var(--color-accent);
   }
 }

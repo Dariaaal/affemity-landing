@@ -1,11 +1,10 @@
 import { useState, useEffect } from "react";
 import Header from "../../components/Header/Header";
-import ProgressBar from "../../components/ProgressBar/ProgressBar";
 import { cx } from "../../lib/classNames";
-import css from "./PersonalizedPlanPage.module.css";
 import { Goal } from "../../models/Goal";
 import PopUp from "../../components/PopUp/PopUp";
 import ReviewsCarousel from "../../components/Reviews/ReviewsCarousel";
+import ProgressBarList from "../../components/ProgressBar/ProgressBarList";
 
 const initialGoals: Goal[] = [
   {
@@ -80,23 +79,7 @@ const PersonalizedPlanPage = () => {
   return (
     <div className={cx("page-container", "fx-center", "fx--col")}>
       <Header title={"We are crafting your personalized plan"} />
-      <ul
-        className={cx(
-          css["progress-list"],
-          "fx",
-          "fx--col",
-          "full-width",
-          "gap-primary"
-        )}
-      >
-        {goals.map((goal, index) => (
-          <ProgressBar
-            key={index}
-            title={goal.title}
-            progress={goal.progress}
-          />
-        ))}
-      </ul>
+      <ProgressBarList goals={goals} />
       {openPopUp && currentGoalIndex !== null && (
         <PopUp
           text={goals[currentGoalIndex].question}

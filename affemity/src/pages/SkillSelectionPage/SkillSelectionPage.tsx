@@ -82,6 +82,7 @@ const SkillSelectionPage = () => {
         progressBar
         progress={22.8}
       />
+
       <div className={cx(css["skills-container"], "full-width")}>
         <SkillsList
           skills={currentSkills}
@@ -89,6 +90,7 @@ const SkillSelectionPage = () => {
           onChange={handleCheckboxChange}
         />
       </div>
+
       <div className={cx(css["button-container"], "fx-center", "full-width")}>
         <button
           className={cx(
@@ -101,6 +103,7 @@ const SkillSelectionPage = () => {
           Continue
         </button>
       </div>
+      
     </div>
   );
 };

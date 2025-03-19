@@ -5,6 +5,13 @@ import css from "./HomePage.module.css";
 import { useDispatch } from "react-redux";
 import { setGoal } from "../../store/slice";
 import ProgressChart from "../../components/ProgressChart/ProgressChart";
+import GoalButtons from "../../components/GoalButtons/GoalButtons";
+import { GoalButton } from "../../models/Goal";
+
+const goals: GoalButton[] = [
+  { id: "goal1", label: "Build a deep connection" },
+  { id: "goal2", label: "Create emotional attraction" },
+];
 
 const HomePage = () => {
   const dispatch = useDispatch();
@@ -30,28 +37,17 @@ const HomePage = () => {
       <div className={css["progress-container"]}>
         <ProgressChart />
       </div>
+
       <div className={cx(css["goal-section"], "fx-center", "fx--col")}>
         <h2 className={cx(css["goal-heading"], "text-center")}>
           What is your main goal?
         </h2>
-        <div className={cx(css["buttons-container"], "fx-center", "gap-primary")}>
-          <button
-            className={cx(css["button-item"], "text-center")}
-            onClick={() => handleGoalClick("goal1")}
-          >
-            Build a deep connection
-          </button>
-          <button
-            className={cx(css["button-item"], "text-center")}
-            onClick={() => handleGoalClick("goal2")}
-          >
-            Create emotional attraction
-          </button>
-        </div>
+        <GoalButtons goals={goals} handleGoalClick={handleGoalClick} />
         <Link to="/" className={css["link-additional"]}>
           Other
         </Link>
       </div>
+      
       <p className={cx(css["agreement-text"], "text-center")}>
         By continuing, you agree to our Terms of Service | Privacy Policy <br />{" "}
         2024 © All Rights Reserved.

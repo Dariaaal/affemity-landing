@@ -3,3 +3,8 @@ export type Goal = {
   progress: number;
   question: string;
 };
+
+export type GoalButton = {
+  id: string;
+  label: string;
+}

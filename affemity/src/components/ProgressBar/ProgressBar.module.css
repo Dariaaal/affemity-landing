@@ -37,3 +37,7 @@
     width: var(--progress-width);
   }
 }
+
+.progress-list {
+  margin-top: 1.2rem;
+}

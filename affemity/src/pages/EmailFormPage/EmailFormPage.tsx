@@ -39,6 +39,7 @@ const EmailFormPage = () => {
         text={"Please enter your email to see results"}
       />
       <div className={cx(css["form"], "fx", "fx--col", "gap-primary")}>
+
         <div>
           <input
             className={cx(
@@ -54,9 +55,11 @@ const EmailFormPage = () => {
             <p className={css["error-tip"]}>Error! Please check your email</p>
           )}
         </div>
+
         <button className={css["button"]} onClick={onResultsClick}>
           Get results
         </button>
+
         <div className={cx("fx", "fx--ai-center", "gap-small")}>
           <div>
             <PrivacyIcon />
@@ -67,6 +70,7 @@ const EmailFormPage = () => {
             access.
           </p>
         </div>
+        
       </div>
     </div>
   );

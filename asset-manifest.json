@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "./static/css/main.099cf273.css",
-    "main.js": "./static/js/main.cda8d356.js",
-    "index.html": "./index.html",
-    "main.099cf273.css.map": "./static/css/main.099cf273.css.map",
-    "main.cda8d356.js.map": "./static/js/main.cda8d356.js.map"
+    "main.css": "/affemity-landing/static/css/main.099cf273.css",
+    "main.js": "/affemity-landing/static/js/main.b89ad324.js",
+    "index.html": "/affemity-landing/index.html",
+    "main.099cf273.css.map": "/affemity-landing/static/css/main.099cf273.css.map",
+    "main.b89ad324.js.map": "/affemity-landing/static/js/main.b89ad324.js.map"
   },
   "entrypoints": [
     "static/css/main.099cf273.css",
-    "static/js/main.cda8d356.js"
+    "static/js/main.b89ad324.js"
   ]
 }

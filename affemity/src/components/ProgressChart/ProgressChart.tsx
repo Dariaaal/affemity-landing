@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   Bar,
   ResponsiveContainer,
@@ -11,71 +11,72 @@ import css from "./ProgressChart.module.css";
 import { cx } from "../../lib/classNames";
 
 const data = [
-  { value: 11, label: "You", lineValue: 10 },
+  { value: 11, lineValue: 10 },
   { value: 18, lineValue: 13 },
   { value: 25, lineValue: 19 },
   { value: 32, lineValue: 28 },
-  { value: 39, label: "Goal", lineValue: 39 },
+  { value: 39, lineValue: 39 },
 ];
 
 const colors = ["#A9DEF4", "#9CC9DC", "#69A8C2", "#5190AA", "#31728D"];
 
-const CustomDot = (props: any) => {
-  const { cx, cy, index } = props;
-  const point = data[index];
-
-  if (point?.label) {
-    return (
-      <circle
-        cx={cx}
-        cy={cy}
-        r={13.5}
-        fill="#A9DEF4"
-        stroke="white"
-        strokeWidth={5}
-      />
-    );
-  }
-  return null;
+const CustomDot = ({ cx, cy, index }: any) => {
+  if (index !== 0 && index !== data.length - 1) return null;
+  return (
+    <circle
+      cx={cx}
+      cy={cy}
+      r={13.5}
+      fill={index === 0 ? "#A9DEF4" : "#31728D"}
+      stroke="white"
+      strokeWidth={5}
+    />
+  );
 };
 
 const ProgressChart: React.FC = () => {
-  const maxValue = 36;
-  const numberOfLines = 4;
+  const [showLabels, setShowLabels] = useState(false);
 
-  const lines = Array.from({ length: numberOfLines }, (_, index) => {
-    return Math.floor((maxValue / (numberOfLines - 1)) * index);
-  });
+  useEffect(() => {
+    const timer = setTimeout(() => setShowLabels(true), 1600);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <div className="container-relative">
       <p className={css["title"]}>
         Take a quiz to get <br /> a personalized plan
       </p>
+
       <div className={css["chart-container"]}>
         <ResponsiveContainer>
-          <ComposedChart
-            data={data}
-            margin={{ top: 13, right: 0, bottom: 0, left: 0 }}
-          >
-            {lines.map((line, index) => (
+          <ComposedChart data={data} margin={{ top: 13 }}>
+            {[0, 12, 24, 36].map((line, index) => (
               <ReferenceLine key={index} y={line} stroke="#D2CFDF" />
             ))}
             <Bar dataKey="value" radius={5.27}>
-              {data.map((entry, index) => (
-                <Cell key={`cell-${index}`} fill={colors[index % 20]} />
+              {data.map((_, index) => (
+                <Cell key={index} fill={colors[index % colors.length]} />
               ))}
             </Bar>
             <Line
               type="monotone"
               dataKey="lineValue"
-              stroke="#111111"
+              stroke="var(--color-text-primary)"
               strokeWidth={2.11}
               dot={<CustomDot />}
             />
           </ComposedChart>
         </ResponsiveContainer>
       </div>
+
+      {showLabels && (
+        <>
+          <div className={cx(css["label-container"], css["label-first"])}>You</div>
+          <div className={cx(css["label-container"], css["label-second"])}>Goal</div>
+        </>
+      )}
+
       <div className={cx(css["weeks"], "fx", "fx--justify-sb")}>
         <p>week 1</p>
         <p>week 4</p>

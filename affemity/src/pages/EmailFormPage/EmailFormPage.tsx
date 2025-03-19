@@ -1,12 +1,11 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Header from "../../components/Header/Header";
 import { PrivacyIcon } from "../../icons/PrivacyIcon";
 import { cx } from "../../lib/classNames";
 import css from "./EmailFormPage.module.css";
 import { addEmail } from "../../store/slice";
 import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../store";
+import { useDispatch } from "react-redux";
 
 const EmailFormPage = () => {
   const [email, setEmail] = useState<string>("");
@@ -39,7 +38,7 @@ const EmailFormPage = () => {
         title={"You’re almost done!"}
         text={"Please enter your email to see results"}
       />
-      <div className={cx(css["form"], "fx", "fx--col")}>
+      <div className={cx(css["form"], "fx", "fx--col", "gap-primary")}>
         <div>
           <input
             className={cx(
@@ -58,7 +57,7 @@ const EmailFormPage = () => {
         <button className={css["button"]} onClick={onResultsClick}>
           Get results
         </button>
-        <div className={cx(css["privacy"], "fx", "fx--ai-center")}>
+        <div className={cx("fx", "fx--ai-center", "gap-small")}>
           <div>
             <PrivacyIcon />
           </div>

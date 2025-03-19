@@ -1,7 +1,6 @@
 import { cx } from "../../lib/classNames";
 import { Skill } from "../../models/Skill";
 import SkillCard from "../SkillCard/SkillCard";
-import css from "./SkillsList.module.css";
 
 type Props = {
   skills: Skill[];
@@ -11,7 +10,7 @@ type Props = {
 
 const SkillsList: React.FC<Props> = ({ skills, selectedSkills, onChange }) => {
   return (
-    <ul className={cx(css["list"], "fx", "fx--col")}>
+    <ul className={cx("fx", "fx--col", "gap-primary")}>
       {skills.map((item) => (
         <li key={item.id}>
           <SkillCard

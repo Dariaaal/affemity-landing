@@ -1,0 +1,54 @@
+.carousel-container {
+  position: absolute;
+  bottom: 4rem;
+  left: 2.4rem;
+  right: 2.4rem;
+  overflow: hidden;
+
+  @media (min-width: 600px) {
+    width: 35.2rem;
+    bottom: 1rem;
+    left: 50%;
+    right: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.review-container {
+  background-color: var(--color-bg-white);
+  border: 0.1rem solid var(--color-border);
+  border-radius: 1rem;
+  padding: 1.2rem 1.6rem;
+}
+
+.review-bg-wrapper {
+  background-color: var(--color-bg-white);
+}
+
+.review-name {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-text-secondary);
+  background-color: var(--color-bg-white);
+}
+
+.review-stars {
+  display: block;
+  width: 8.7rem;
+  height: 1.6rem;
+  background-color: var(--color-bg-white);
+}
+
+.review-rating {
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: var(--color-text-secondary);
+  background-color: var(--color-bg-white);
+}
+
+.review-text {
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-white);
+}

@@ -34,7 +34,7 @@ const HomePage = () => {
         <h2 className={cx(css["goal-heading"], "text-center")}>
           What is your main goal?
         </h2>
-        <div className={cx(css["buttons-container"], "fx-center")}>
+        <div className={cx(css["buttons-container"], "fx-center", "gap-primary")}>
           <button
             className={cx(css["button-item"], "text-center")}
             onClick={() => handleGoalClick("goal1")}

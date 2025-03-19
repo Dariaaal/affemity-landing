@@ -10,20 +10,20 @@ import { Skill, Skills } from "../../models/Skill";
 import { useNavigate } from "react-router-dom";
 
 const skills: Skills = {
-    goal1: [
-        { id: "1", name: "Skill1_goal1", icon: "hands.png" },
-        { id: "2", name: "Skill2_goal1", icon: "tears.png" },
-        { id: "3", name: "Skill3_goal1", icon: "lightning.png" },
-        { id: "4", name: "Skill4_goal1", icon: "smile.png" },
-        { id: "5", name: "Skill5_goal1", icon: "finger.png" },
-      ],
-      goal2: [
-        { id: "1", name: "Skill1_goal2", icon: "hands.png"  },
-        { id: "2", name: "Skill2_goal2", icon: "tears.png" },
-        { id: "3", name: "Skill3_goal2", icon: "lightning.png" },
-        { id: "4", name: "Skill4_goal2", icon: "smile.png" },
-        { id: "5", name: "Skill5_goal2", icon: "finger.png" },
-      ],
+  goal1: [
+    { id: "1", name: "Skill1_goal1", icon: "hands.png" },
+    { id: "2", name: "Skill2_goal1", icon: "tears.png" },
+    { id: "3", name: "Skill3_goal1", icon: "lightning.png" },
+    { id: "4", name: "Skill4_goal1", icon: "smile.png" },
+    { id: "5", name: "Skill5_goal1", icon: "finger.png" },
+  ],
+  goal2: [
+    { id: "1", name: "Skill1_goal2", icon: "hands.png" },
+    { id: "2", name: "Skill2_goal2", icon: "tears.png" },
+    { id: "3", name: "Skill3_goal2", icon: "lightning.png" },
+    { id: "4", name: "Skill4_goal2", icon: "smile.png" },
+    { id: "5", name: "Skill5_goal2", icon: "finger.png" },
+  ],
 };
 
 const SkillSelectionPage = () => {
@@ -49,9 +49,9 @@ const SkillSelectionPage = () => {
 
   const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { checked, value } = e.target;
-  
-    const selectedSkill = currentSkills.find(skill => skill.id === value);
-  
+
+    const selectedSkill = currentSkills.find((skill) => skill.id === value);
+
     if (selectedSkill) {
       if (checked) {
         dispatch(addSelectedOption(selectedSkill));

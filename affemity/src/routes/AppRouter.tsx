@@ -5,7 +5,7 @@ import PersonalizedPlanPage from "../pages/PersonalizedPlanPage/PersonalizedPlan
 import EmailFormPage from "../pages/EmailFormPage/EmailFormPage";
 
 const AppRouter = () => (
-  <Router>
+  <Router basename="/affemity-landing">
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/skills" element={<SkillSelectionPage />} />
